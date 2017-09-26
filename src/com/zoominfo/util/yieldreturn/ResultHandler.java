@@ -1,6 +1,5 @@
 /**
- * A "yield return" implementation for Java
- * By Jim Blackler (jimblackler@gmail.com)
+ * A "yield return" implementation for Java By Jim Blackler (jimblackler@gmail.com)
  *
  * http://jimblackler.net/blog/?p=61
  * http://svn.jimblackler.net/jimblackler/trunk/IdeaProjects/YieldAdapter/
@@ -13,11 +12,11 @@ package com.zoominfo.util.yieldreturn;
  */
 public interface ResultHandler<T> {
 
-    /**
-     * This method is called by collectors whenever a result is collected.
-     *
-     * @param value The collected result
-     * @throws CollectionAbortedException The client code requests that the collection is aborted
-     */
-    void handleResult(T value) throws CollectionAbortedException;
+  /**
+   * This method is called by collectors whenever a result is collected.
+   *
+   * @param value The collected result
+   * @throws CollectionAbortedException The client code requests that the collection is aborted
+   */
+  void handleResult(T value) throws CollectionAbortedException;
 }

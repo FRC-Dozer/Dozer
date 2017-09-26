@@ -1,6 +1,5 @@
 /**
- * A "yield return" implementation for Java
- * By Jim Blackler (jimblackler@gmail.com)
+ * A "yield return" implementation for Java By Jim Blackler (jimblackler@gmail.com)
  *
  * http://jimblackler.net/blog/?p=61
  * http://svn.jimblackler.net/jimblackler/trunk/IdeaProjects/YieldAdapter/
@@ -13,18 +12,17 @@ package com.zoominfo.util.yieldreturn;
  */
 public class CollectionAbortedException extends Exception {
 
-    public CollectionAbortedException() {
-    }
+  public CollectionAbortedException() {}
 
-    public CollectionAbortedException(String message) {
-        super(message);
-    }
+  public CollectionAbortedException(String message) {
+    super(message);
+  }
 
-    public CollectionAbortedException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public CollectionAbortedException(String message, Throwable cause) {
+    super(message, cause);
+  }
 
-    public CollectionAbortedException(Throwable cause) {
-        super(cause);
-    }
+  public CollectionAbortedException(Throwable cause) {
+    super(cause);
+  }
 }
