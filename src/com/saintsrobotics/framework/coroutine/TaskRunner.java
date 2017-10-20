@@ -12,11 +12,21 @@ public class TaskRunner {
   private List<Task> tasks;
   private boolean disabled = false;
 
+  /**
+   * Constructs TaskRunner with a list of tasks
+   * @method TaskRunner
+   * @param  Task...    tasks         the tasks that will be run by this taskrunner.
+   *
+   */
   public TaskRunner(Task... tasks) {
     this.tasks = new LinkedList<>();
     this.tasks.addAll(Arrays.asList(tasks));
   }
 
+  /**
+   * Controls how tasks run and makes sure no null or disabled tasks are run.
+   * @method run
+   */
   public void run() {
     if (disabled) {
       return;
@@ -38,6 +48,10 @@ public class TaskRunner {
     }
   }
 
+  /**
+   * Sets the task runner to disabled so it will not be run
+   * @method disable
+   */
   public void disable() {
     this.disabled = true;
   }
