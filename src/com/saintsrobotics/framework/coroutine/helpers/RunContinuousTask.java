@@ -2,6 +2,12 @@ package com.saintsrobotics.framework.coroutine.helpers;
 
 import com.saintsrobotics.framework.coroutine.Task;
 
+
+/**
+ * Extends the abstract class "Task" so that it runs continuously. This means you must wait inside the runContinously() function
+ *
+ * @class RunContinousTask
+ */
 public abstract class RunContinuousTask extends Task {
 
   @Override

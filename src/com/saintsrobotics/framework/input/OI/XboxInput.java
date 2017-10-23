@@ -2,6 +2,11 @@ package com.saintsrobotics.framework.input.OI;
 
 import com.saintsrobotics.framework.input.OI.Input;
 
+
+/**
+ * Special pins and joysticks especially set up for the Xbox Controller
+ * @class XboxInput
+ */
 public class XboxInput extends Input {
 
   public XboxInput(int pin) {
