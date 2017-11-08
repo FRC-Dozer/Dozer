@@ -15,7 +15,7 @@ Download a Release (Coming soon)
 
 Or add us as a dependency on Maven (Also coming soon)
 
-:Construction:
+:construction:
 
 ### Prerequisites
 
