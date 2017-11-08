@@ -9,9 +9,13 @@ Dozer is a framework for robots built with [WPILib](https://github.com/wpilibsui
 
 ## Getting Started
 
+:construction_worker:
+
 Download a Release (Coming soon)
 
 Or add us as a dependency on Maven (Also coming soon)
+
+:Construction:
 
 ### Prerequisites
 
@@ -47,4 +51,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 ## Acknowledgments
 
-* Special thanks to all of our mentors in helping us make this project a reality
+* Special thanks to all of our mentors in helping us make this project a reality :heart:
