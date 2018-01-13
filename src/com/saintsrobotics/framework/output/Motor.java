@@ -1,7 +1,7 @@
 package com.saintsrobotics.framework.output;
 
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.TalonSRX;
+import edu.wpi.first.wpilibj.PWMTalonSRX;
 
 public class Motor {
   public static final double MOTOR_RAMPING = 0.01;
@@ -17,7 +17,7 @@ public class Motor {
   }
 
   public void init() {
-    speedController = new TalonSRX(pin);
+    speedController = new PWMTalonSRX(pin);
     speedController.setInverted(inverted);
   }
 

@@ -15,7 +15,8 @@ public class SingleSolenoid {
     solenoid = new Solenoid(pin);
   }
 
-  public void set(double on) {
+  //This used to be a double. Not sure why, since solenoid has only had a 
+  public void set(boolean on) {
     solenoid.set(on);
   }
   
