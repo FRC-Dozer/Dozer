@@ -19,16 +19,10 @@ public abstract class RunSequentialTask extends Task {
 }
   @Override
   protected void runTask() {
-    while (true) {
-    	if(tasks.iterator.hasNext()) {
-    		tasks.Waiters = tasks.iterator.next();
-    	}
-}
-    }
-  
-
-  /**
-   * Runs this method in a while loop. Must wait inside.
-   */
-  protected abstract void runSequentialy();
+	  for(Task t : this.tasks) {
+		  while(t.iterator().hasNext()) {
+			  yield(t.iterator().next());
+		  }
+	  }
+  }
 }
