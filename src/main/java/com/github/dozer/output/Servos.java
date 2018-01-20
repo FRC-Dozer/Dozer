@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.output;
+package com.github.dozer.output;
 
 import java.util.HashMap;
 import java.util.Map;

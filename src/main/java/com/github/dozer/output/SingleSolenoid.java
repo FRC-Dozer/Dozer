@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.output;
+package com.github.dozer.output;
 
 import edu.wpi.first.wpilibj.Solenoid;
 

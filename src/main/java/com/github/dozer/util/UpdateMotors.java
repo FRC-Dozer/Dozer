@@ -1,8 +1,8 @@
-package com.saintsrobotics.framework.util;
+package com.github.dozer.util;
 
 
-import com.saintsrobotics.framework.coroutine.helpers.RunEachFrameTask;
-import com.saintsrobotics.framework.output.Motors;
+import com.github.dozer.coroutine.helpers.RunEachFrameTask;
+import com.github.dozer.output.Motors;
 
 public class UpdateMotors extends RunEachFrameTask {
   private Motors motors;

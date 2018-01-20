@@ -1,13 +1,12 @@
-package com.saintsrobotics.framework.coroutine.helpers;
+package com.github.dozer.coroutine.helpers;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.saintsrobotics.framework.coroutine.Task;
-import com.sun.jmx.snmp.tasks.TaskServer;
+import com.github.dozer.coroutine.Task;
 
-		
+
 public abstract class RunSequentialTask extends Task {
 	private List<Task> tasks;
 

@@ -1,6 +1,6 @@
-package com.saintsrobotics.framework.coroutine.helpers;
+package com.github.dozer.coroutine.helpers;
 
-import com.saintsrobotics.framework.coroutine.Task;
+import com.github.dozer.coroutine.Task;
 
 public abstract class RunContinuousTask extends Task {
 

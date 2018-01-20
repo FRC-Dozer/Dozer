@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.coroutine;
+package com.github.dozer.coroutine;
 
 
 import java.util.Arrays;
