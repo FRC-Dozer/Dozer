@@ -4,13 +4,18 @@ import com.saintsrobotics.framework.coroutine.Task;
 
 		
 public abstract class RunSequentialTask extends Task {
-	public RunSequentialTask(String ...strings ){
+	public RunSequentialTask(Task...tasks ){
+		int tasksLength = tasks.length;
 		
 }
   @Override
   protected void runTask() {
     while (true) {
       runSequentialy();
+      int tasksLength = tasks.length;
+      for(int TasksRun = 0;TasksRun<tasksLength;TasksRun++) {
+			
+		}
     }
   }
 
