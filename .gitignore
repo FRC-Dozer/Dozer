@@ -1,3 +1,5 @@
 /bin/
 .project
 .classpath
+.idea
+target
