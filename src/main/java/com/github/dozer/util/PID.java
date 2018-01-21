@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.util;
+package com.github.dozer.util;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
