@@ -17,6 +17,10 @@ Or add us as a dependency on Maven (Also coming soon)
 
 :construction:
 
+## Discord
+
+Join us on [Discord!](https://discord.gg/HQ2FPkn)
+
 ### Prerequisites
 
 You'll need a copy of the latest build of WPILib from FRC, either as an [Eclipse plugin](https://wpilib.screenstepslive.com/s/4485/m/13503/l/599679-installing-eclipse-c-java) or as a [Maven artifact](https://wpilib.screenstepslive.com/s/4485/m/wpilib_source/l/480976-maven-artifacts)
