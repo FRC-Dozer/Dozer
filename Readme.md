@@ -11,9 +11,9 @@ Dozer is a framework for robots built with [WPILib](https://github.com/wpilibsui
 
 :construction_worker:
 
-Download a Release (Coming soon)
+[Download a Release](/releases/latest)
 
-Or add us as a dependency on Maven (Also coming soon)
+Or add us as a dependency on Maven (coming soon)
 
 :construction:
 
@@ -41,17 +41,18 @@ Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/SaintsRobotics/Dozer/blob/master/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
 * **Saints Robotics** - *Initial work* - [Saints Robotics](https://github.com/SaintsRobotics)
+* **Robototes** - [Robototes](https://www.robototes.com/)
 
-See also the list of [contributors](https://github.com/SaintsRobotics/Dozer/contributors) who participated in this project.
+See also the list of [contributors](/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/SaintsRobotics/Dozer/blob/master/Licence.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](Licence.md) file for details
 
 ## Acknowledgments
 
