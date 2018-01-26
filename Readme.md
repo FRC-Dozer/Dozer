@@ -11,7 +11,7 @@ Dozer is a framework for robots built with [WPILib](https://github.com/wpilibsui
 
 :construction_worker:
 
-[Download a Release](/releases/latest)
+[Download a Release](https://github.com/FRC-Dozer/Dozer/releases/latest)
 
 Or add us as a dependency on Maven (coming soon)
 
@@ -27,7 +27,7 @@ You'll need a copy of the latest build of WPILib from FRC, either as an [Eclipse
 
 ### Installing
 ##### Eclipse Plugins
-Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME` on Windows). This jar file will be available to all existing and future projects that are built with WPILib in Eclipse, and will be packaged automatically into the deploy task.
+Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME` on Windows). This jar file will be available to all existing and future projects that are built with WPILib in Eclipse, and will be packaged automatically into the deploy task. Make sure to also add it to your IDE's classpath
 
 ##### Maven Artefact
 (Support coming soon)
@@ -48,7 +48,7 @@ Please read [CONTRIBUTING.md](Contributing.md) for details on our code of conduc
 * **Saints Robotics** - *Initial work* - [Saints Robotics](https://github.com/SaintsRobotics)
 * **Robototes** - [Robototes](https://www.robototes.com/)
 
-See also the list of [contributors](/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/FRC-Dozer/Dozer/contributors) who participated in this project.
 
 ## License
 
