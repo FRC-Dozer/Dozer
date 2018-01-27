@@ -3,26 +3,22 @@ package com.github.dozer.output;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 
-public class Motor {
+public class MotorRamping implements Motor{
   public static final double MOTOR_RAMPING = 0.01;
 
-  private final int pin;
-  private final boolean inverted;
   private SpeedController speedController;
 
-  Motor(int pin, boolean inverted) {
-    // TODO Generic this in some way.
-    this.pin = pin;
-    this.inverted = inverted;
-  }
-
-  public void init() {
-    speedController = new PWMTalonSRX(pin);
-    speedController.setInverted(inverted);
+  MotorRamping(SpeedController speedController, boolean inverted) {
+    this.speedController = speedController;
+    this.speedController.setInverted(inverted);
   }
 
   private double setpoint = 0;
   private double current = 0;
+
+  public double get(){
+    return speedController.get();
+  }
 
 
   public void set(double speed) {

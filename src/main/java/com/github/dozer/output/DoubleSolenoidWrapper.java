@@ -2,12 +2,12 @@ package com.github.dozer.output;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class DoubleSolenoid {
+public class DoubleSolenoidWrapper {
   private final int pin1;
   private final int pin2;
   private DoubleSolenoid doubleSolenoid;
 
-  DoubleSolenoid(int pin1, int pin2) {
+  DoubleSolenoidWrapper(int pin1, int pin2) {
     // TODO Generic this in some way.
     this.pin1 = pin1;
     this.pin2 = pin2;
