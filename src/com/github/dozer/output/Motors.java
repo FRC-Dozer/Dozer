@@ -3,6 +3,8 @@ package com.github.dozer.output;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.saintsrobotics.framework.output.Motor;
+
 public abstract class Motors {
 
 
@@ -19,5 +21,8 @@ public abstract class Motors {
   public void update() {
     motorList.values().forEach(Motor::update);
   }
-
+  public Motor get(String motorName) {
+	  return this.motorList.get(motorName);
+	  
+  }
 }
