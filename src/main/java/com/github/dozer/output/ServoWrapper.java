@@ -5,7 +5,7 @@ public class ServoWrapper implements Servo {
 
   private edu.wpi.first.wpilibj.Servo servo;
 
-  ServoWrapper(int pin) {
+  public ServoWrapper(int pin) {
     this.servo = new edu.wpi.first.wpilibj.Servo(pin);
   }
 
