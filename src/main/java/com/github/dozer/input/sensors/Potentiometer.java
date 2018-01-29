@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.input.sensors;
+package com.github.dozer.input.sensors;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 

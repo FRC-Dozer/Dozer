@@ -1,4 +1,4 @@
-package com.saintsrobotics.framework.util;
+package com.github.dozer.util;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,21 +26,21 @@ public class PID {
   public double compute(double input, double setpoint) {
     double error = setpoint - input;
 
-    errorSum += error * ki;
-    if (errorSum < -maxSum)
-      errorSum = -maxSum;
-    if (errorSum > maxSum)
-      errorSum = maxSum;
+    this.errorSum += error * ki;
+    if (this.errorSum < -this.maxSum)
+      this.errorSum = -this.maxSum;
+    if (this.errorSum > this.maxSum)
+      this.errorSum = this.maxSum;
 
     SmartDashboard.putNumber("pid_error_sum", errorSum);
 
-    double output = kp * error + errorSum - kd * (error - lastError);
-    if (output < outMin)
-      output = outMin;
-    if (output > outMax)
-      output = outMax;
+    double output = this.kp * error + this.errorSum - this.kd * (error - this.lastError);
+    if (output < this.outMin)
+      output = this.outMin;
+    if (output > this.outMax)
+      output = this.outMax;
 
-    lastError = error;
+    this.lastError = error;
     return output;
   }
 }
