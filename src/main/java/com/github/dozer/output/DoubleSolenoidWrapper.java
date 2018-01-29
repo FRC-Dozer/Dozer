@@ -7,7 +7,7 @@ public class DoubleSolenoidWrapper {
   private final int pin2;
   private DoubleSolenoid doubleSolenoid;
 
-  DoubleSolenoidWrapper(int pin1, int pin2) {
+  public DoubleSolenoidWrapper(int pin1, int pin2) {
     // TODO Generic this in some way.
     this.pin1 = pin1;
     this.pin2 = pin2;

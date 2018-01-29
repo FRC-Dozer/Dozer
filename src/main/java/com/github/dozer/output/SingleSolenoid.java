@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class SingleSolenoid {
   private Solenoid solenoid;
 
-  SingleSolenoid(int pin) {
+  public SingleSolenoid(int pin) {
     this.solenoid = new Solenoid(pin);
   }
 

@@ -8,7 +8,7 @@ public class MotorRamping implements Motor{
 
   private SpeedController speedController;
 
-  MotorRamping(SpeedController speedController, boolean inverted) {
+  public MotorRamping(SpeedController speedController, boolean inverted) {
     this.speedController = speedController;
     this.speedController.setInverted(inverted);
   }

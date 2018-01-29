@@ -7,7 +7,7 @@ public class LimitSwitch {
   private final int pin;
   private DigitalInput switchInput;
 
-  LimitSwitch(int pin) {
+  public LimitSwitch(int pin) {
     this.pin = pin;
   }
 
