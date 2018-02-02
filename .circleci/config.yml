@@ -76,7 +76,7 @@ jobs:
 
       - run:
           name: Install github-release-cli
-          command: npm install -g github-release-cli
+          command: sudo npm install -g github-release-cli
 
       - run:
           name: Create a new GitHub Release
