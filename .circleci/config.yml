@@ -86,7 +86,7 @@ workflows:
             - artifact
       - deploy:
           type: approval # requires manual interaction
-          filter:
+          filters:
             branches:
               only:
                 - master
