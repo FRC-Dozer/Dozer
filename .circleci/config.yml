@@ -67,18 +67,25 @@ jobs:
 #          command: mvn unit-tests
 
   deploy:
-    <<: *template
+    working_directory: *workdir
+    docker:
+      - image: circleci/node:8
     steps:
       - attach_workspace:
           at: *workdir
 
       - run:
-          name: Install GitHub Releases management tool
-          command: 
+          name: Install github-release-cli
+          command: npm install -g github-release-cli
 
       - run:
-          name: Upload Dozer.jar to GitHub Releases
-          command: 
+          name: Create a new GitHub Release
+          command: >
+            github-release upload --owner $CIRCLE_PROJECT_USERNAME
+              --repo $CIRCLE_PROJECT_REPONAME
+              --tag $CIRCLE_TAG
+              --name $CIRCLE_TAG
+              target/Dozer.jar
 
 workflows:
   version: 2
@@ -92,7 +99,6 @@ workflows:
           requires:
             - artifact
       - deploy:
-          type: approval # requires manual interaction
           filters:
             branches:
               only:
