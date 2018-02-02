@@ -1,5 +1,5 @@
 job_template: &template
-  working_directory: /tmp/dozer
+  working_directory: &workdir /tmp/dozer
   docker:
     - image: circleci/openjdk:8-jdk
   environment:
@@ -31,7 +31,7 @@ jobs:
 
       # save the dependencies for downstream jobs
       - persist_to_workspace:
-          root: /tmp/dozer
+          root: *workdir
           paths:
             - .
 
@@ -39,7 +39,7 @@ jobs:
     <<: *template
     steps:
       - attach_workspace:
-          at: /tmp/dozer
+          at: *workdir
 
       - run:
           name: Build Dozer.jar
@@ -52,7 +52,7 @@ jobs:
 
       # persist Dozer.jar to the test and deploy steps
       - persist_to_workspace:
-          root: /tmp/dozer
+          root: *workdir
           paths:
             - target/Dozer.jar
 
@@ -60,7 +60,7 @@ jobs:
     <<: *template
     steps:
       - attach_workspace:
-          at: /tmp/dozer
+          at: *workdir
 
 #      - run:
 #          name: Run unit tests
@@ -70,7 +70,7 @@ jobs:
     <<: *template
     steps:
       - attach_workspace:
-          at: /tmp/dozer
+          at: *workdir
 
       - run:
           name: Install GitHub Releases management tool
