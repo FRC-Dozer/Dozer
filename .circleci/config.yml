@@ -99,6 +99,7 @@ workflows:
           requires:
             - artifact
       - deploy:
+          type: approval
           filters:
             branches:
               only:
