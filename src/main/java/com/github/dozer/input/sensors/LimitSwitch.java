@@ -1,15 +1,13 @@
-package com.saintsrobotics.framework.input.sensors;
+package com.github.dozer.input.sensors;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import java.util.ArrayList;
-import java.util.List;
 
 public class LimitSwitch {
 
   private final int pin;
   private DigitalInput switchInput;
 
-  LimitSwitch(int pin) {
+  public LimitSwitch(int pin) {
     this.pin = pin;
   }
 
