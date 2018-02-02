@@ -1,0 +1,110 @@
+job_template: &template
+  working_directory: &workdir /tmp/dozer
+  docker:
+    - image: circleci/openjdk:8-jdk
+  environment:
+    # set the JVM heap limit
+    MAVEN_OPTS: -Xmx3200m
+
+version: 2
+jobs:
+  prepare:
+    <<: *template
+    steps:
+      - checkout
+
+      # download cached dependencies
+      - restore_cache:
+          keys:
+            - dozer-{{ checksum "pom.xml" }}
+            - dozer- # fallback to the latest cache
+
+      - run:
+          name: Install dependencies
+          command: mvn dependency:go-offline
+
+      # save any cache updates
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: dozer-{{ checksum "pom.xml" }}
+
+      # save the dependencies for downstream jobs
+      - persist_to_workspace:
+          root: *workdir
+          paths:
+            - .
+
+  artifact:
+    <<: *template
+    steps:
+      - attach_workspace:
+          at: *workdir
+
+      - run:
+          name: Build Dozer.jar
+          command: mvn package
+
+      # release Dozer.jar as a CircleCI artifact
+      - store_artifacts:
+          path: target/Dozer.jar
+          destination: Dozer.jar
+
+      # persist Dozer.jar to the test and deploy steps
+      - persist_to_workspace:
+          root: *workdir
+          paths:
+            - target/Dozer.jar
+
+  unit_test:
+    <<: *template
+    steps:
+      - attach_workspace:
+          at: *workdir
+
+#      - run:
+#          name: Run unit tests
+#          command: mvn unit-tests
+
+  deploy:
+    working_directory: *workdir
+    docker:
+      - image: circleci/node:8
+    steps:
+      - attach_workspace:
+          at: *workdir
+
+      - run:
+          name: Install github-release-cli
+          command: sudo npm install -g github-release-cli
+
+      - run:
+          name: Create a new GitHub Release
+          command: >
+            github-release upload --owner $CIRCLE_PROJECT_USERNAME \
+              --repo $CIRCLE_PROJECT_REPONAME \
+              --tag $CIRCLE_TAG \
+              --name $CIRCLE_TAG \
+              target/Dozer.jar
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - prepare
+      - artifact:
+          requires:
+            - prepare
+      - unit_test:
+          requires:
+            - artifact
+      - deploy:
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /.*/
+          requires:
+            - unit_test
