@@ -1,31 +1,96 @@
+job_template: &template
+  working_directory: /tmp/dozer
+  docker:
+    - image: circleci/openjdk:8-jdk
+  environment:
+    # set the JVM heap limit
+    MAVEN_OPTS: -Xmx3200m
+
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/openjdk:8-jdk
-      
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      MAVEN_OPTS: -Xmx3200m
-    
+  prepare:
+    <<: *template
     steps:
       - checkout
-
-      # Download and cache dependencies
+      
+      # download cached dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
+            - v1-dependencies-{{ checksum "pom.xml" }}
+            - v1-dependencies- # fallback to the latest cache
+      
+      # install the dependencies
       - run: mvn dependency:go-offline
-
+      
+      # save any cache updates
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+      
+      # save the dependencies for downstream jobs
+      - persist_to_workspace:
+          root: /tmp/dozer
+          paths:
+            - .
+
+  artifact:
+    <<: *template
+    steps:
+      - attach_workspace:
+          at: /tmp/dozer
+      
+      # build the jar
+      - run: mvn package
+      
+      # release the jar as a CircleCI artifact
+      - run: cp dozer.jar $CIRCLE_ARTIFACTS
+      
+      # persist the jar to the deploy step
+      - persist_to_workspace:
+          root: /tmp/dozer
+          paths:
+            - dozer.jar
+          
+  test:
+    <<: *template
+    steps:
+      - attach_workspace:
+          at: /tmp/dozer
         
-      # run tests!
+      # run tests
       - run: mvn integration-test
+
+  deploy:
+    <<: *template
+    steps:
+      - attach_workspace:
+          at: /tmp/dozer
+      
+      # install a tool to deploy to GitHub Releases
+      - run: 
+      
+      # release the jar on GitHub
+      - run: 
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - prepare
+      - artifact:
+          requires:
+            - prepare
+      - test:
+          requires:
+            - artifact
+      - deploy:
+          type: approval # requires manual interaction
+          filter:
+            branches:
+              only:
+                - master
+            tags:
+              only: /.*/
+          requires:
+            - test
