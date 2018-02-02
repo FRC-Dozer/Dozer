@@ -11,11 +11,15 @@ Dozer is a framework for robots built with [WPILib](https://github.com/wpilibsui
 
 :construction_worker:
 
-Download a Release (Coming soon)
+[Download a Release](https://github.com/FRC-Dozer/Dozer/releases/latest)
 
-Or add us as a dependency on Maven (Also coming soon)
+Or add us as a dependency on Maven (coming soon)
 
 :construction:
+
+## Discord
+
+Join us on [Discord!](https://discord.gg/HQ2FPkn)
 
 ### Prerequisites
 
@@ -23,7 +27,7 @@ You'll need a copy of the latest build of WPILib from FRC, either as an [Eclipse
 
 ### Installing
 ##### Eclipse Plugins
-Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME` on Windows). This jar file will be available to all existing and future projects that are built with WPILib in Eclipse, and will be packaged automatically into the deploy task.
+Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME` on Windows). This jar file will be available to all existing and future projects that are built with WPILib in Eclipse, and will be packaged automatically into the deploy task. Make sure to also add it to your IDE's classpath
 
 ##### Maven Artefact
 (Support coming soon)
@@ -37,17 +41,18 @@ Add our built jar archive to `USER_HOME\wpilib\user\java\lib`(`C:\Users\USERNAME
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/SaintsRobotics/Dozer/blob/master/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
 * **Saints Robotics** - *Initial work* - [Saints Robotics](https://github.com/SaintsRobotics)
+* **Robototes** - [Robototes](https://www.robototes.com/)
 
-See also the list of [contributors](https://github.com/SaintsRobotics/Dozer/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/FRC-Dozer/Dozer/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/SaintsRobotics/Dozer/blob/master/Licence.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](Licence.md) file for details
 
 ## Acknowledgments
 
