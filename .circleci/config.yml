@@ -12,22 +12,23 @@ jobs:
     <<: *template
     steps:
       - checkout
-      
+
       # download cached dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            - v1-dependencies- # fallback to the latest cache
-      
-      # install the dependencies
-      - run: mvn dependency:go-offline
-      
+            - dozer-{{ checksum "pom.xml" }}
+            - dozer- # fallback to the latest cache
+
+      - run:
+          name: Install dependencies
+          command: mvn dependency:go-offline
+
       # save any cache updates
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-      
+          key: dozer-{{ checksum "pom.xml" }}
+
       # save the dependencies for downstream jobs
       - persist_to_workspace:
           root: /tmp/dozer
@@ -39,39 +40,45 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/dozer
-      
-      # build the jar
-      - run: mvn package
-      
-      # release the jar as a CircleCI artifact
-      - run: cp dozer.jar $CIRCLE_ARTIFACTS
-      
-      # persist the jar to the deploy step
+
+      - run:
+          name: Build Dozer.jar
+          command: mvn package
+
+      # release Dozer.jar as a CircleCI artifact
+      - store_artifacts:
+          path: target/Dozer.jar
+          destination: jar
+
+      # persist Dozer.jar to the test and deploy steps
       - persist_to_workspace:
           root: /tmp/dozer
           paths:
-            - dozer.jar
-          
-  test:
+            - target/Dozer.jar
+
+  unit_test:
     <<: *template
     steps:
       - attach_workspace:
           at: /tmp/dozer
-        
-      # run tests
-      - run: mvn integration-test
+
+      - run:
+          name: Run unit tests
+          command: mvn unit-tests
 
   deploy:
     <<: *template
     steps:
       - attach_workspace:
           at: /tmp/dozer
-      
-      # install a tool to deploy to GitHub Releases
-      - run: 
-      
-      # release the jar on GitHub
-      - run: 
+
+      - run:
+          name: Install GitHub Releases management tool
+          command: 
+
+      - run:
+          name: Upload Dozer.jar to GitHub Releases
+          command: 
 
 workflows:
   version: 2
@@ -81,7 +88,7 @@ workflows:
       - artifact:
           requires:
             - prepare
-      - test:
+      - unit_test:
           requires:
             - artifact
       - deploy:
@@ -93,4 +100,4 @@ workflows:
             tags:
               only: /.*/
           requires:
-            - test
+            - unit_test
