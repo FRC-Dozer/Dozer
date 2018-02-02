@@ -48,7 +48,7 @@ jobs:
       # release Dozer.jar as a CircleCI artifact
       - store_artifacts:
           path: target/Dozer.jar
-          destination: jar
+          destination: Dozer.jar
 
       # persist Dozer.jar to the test and deploy steps
       - persist_to_workspace:
@@ -62,9 +62,9 @@ jobs:
       - attach_workspace:
           at: /tmp/dozer
 
-      - run:
-          name: Run unit tests
-          command: mvn unit-tests
+#      - run:
+#          name: Run unit tests
+#          command: mvn unit-tests
 
   deploy:
     <<: *template
