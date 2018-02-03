@@ -2,6 +2,8 @@
 
 Dozer is a framework for robots built with [WPILib](https://github.com/wpilibsuite) to help write fluent, readable code.
 
+Build: [![CircleCI](https://circleci.com/gh/FRC-Dozer/Dozer/tree/master.svg?style=svg)](https://circleci.com/gh/FRC-Dozer/Dozer/tree/master)
+
 ## Features
 
 * A task scheduler that allows you to write your robot logic as coroutines
