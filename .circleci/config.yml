@@ -81,7 +81,9 @@ jobs:
       - run:
           name: Create a new GitHub Release
           command: >
-            github-release upload --owner $CIRCLE_PROJECT_USERNAME \
+            github-release upload
+              -t $GITHUB_TOKEN \
+              --owner $CIRCLE_PROJECT_USERNAME \
               --repo $CIRCLE_PROJECT_REPONAME \
               --tag $CIRCLE_TAG \
               --name $CIRCLE_TAG \
@@ -99,7 +101,6 @@ workflows:
           requires:
             - artifact
       - deploy:
-          type: approval
           filters:
             branches:
               only:
