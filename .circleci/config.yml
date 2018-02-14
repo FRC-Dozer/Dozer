@@ -82,7 +82,7 @@ jobs:
           name: Create a new GitHub Release
           command: >
             github-release upload
-              --owner $CIRCLE_PROJECT_USERNAME \
+              --owner $CIRCLE_USERNAME \
               --repo $CIRCLE_PROJECT_REPONAME \
               --tag $CIRCLE_TAG \
               --name $CIRCLE_TAG \
