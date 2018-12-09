@@ -37,7 +37,7 @@ public abstract class TaskRobot extends IterativeRobot {
       this.runner = null;
     }
     if (this.teleopTasks == null) {
-      DriverStation.reportWarning("AutonomousTasks has not been initalized!", false);
+      DriverStation.reportWarning("teleopTasks has not been initalized!", false);
       return;
     }
     runner = new TaskRunner(this.teleopTasks);
@@ -50,7 +50,7 @@ public abstract class TaskRobot extends IterativeRobot {
       this.runner = null;
     }
     if (this.testTasks == null) {
-      DriverStation.reportWarning("AutonomousTasks has not been initalized!", false);
+      DriverStation.reportWarning("testTasks has not been initalized!", false);
       return;
     }
     runner = new TaskRunner(this.testTasks);
@@ -63,7 +63,7 @@ public abstract class TaskRobot extends IterativeRobot {
       this.runner = null;
     }
     if (this.disabledTasks == null) {
-      DriverStation.reportWarning("AutonomousTasks has not been initalized!", false);
+      DriverStation.reportWarning("disabledTasks has not been initalized!", false);
       return;
     }
     this.runner = new TaskRunner(disabledTasks);
