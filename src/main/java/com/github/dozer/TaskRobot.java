@@ -92,6 +92,11 @@ public abstract class TaskRobot extends IterativeRobot {
     this.runner = new TaskRunner(disabledTasks);
   }
 
+  /**
+   * Runs the robot peridodically as long as the runner exists and has been initalized by one of the init methods.
+   * This should never be called outside of the init satement.
+   * @method robotPeridoic
+   */
   @Override
   public void robotPeriodic() {
     if (runner != null) {
