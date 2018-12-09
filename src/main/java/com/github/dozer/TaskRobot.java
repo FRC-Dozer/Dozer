@@ -22,7 +22,6 @@ public abstract class TaskRobot extends IterativeRobot {
    * Without this declaration, the DriverStation will be warned when this init is called.
    * @method autonomousInit
    */
-  @Override
   public void autonomousInit() {
     if (this.runner != null) {
       this.runner.disable();
@@ -41,7 +40,6 @@ public abstract class TaskRobot extends IterativeRobot {
    * Without this declaration, the DriverStation will be warned when this init is called.
    * @method teleopInit
    */
-  @Override
   public void teleopInit() {
     if (this.runner != null) {
       this.runner.disable();
@@ -60,7 +58,6 @@ public abstract class TaskRobot extends IterativeRobot {
    * Without this declaration, the DriverStation will be warned when this init is called.
    * @method testInit
    */
-  @Override
   public void testInit() {
     if (this.runner != null) {
       this.runner.disable();
@@ -79,7 +76,6 @@ public abstract class TaskRobot extends IterativeRobot {
    * Without this declaration, the DriverStation will be warned when this init is called.
    * @method testInit
    */
-  @Override
   public void disabledInit() {
     if (runner != null) {
       this.runner.disable();
@@ -97,7 +93,6 @@ public abstract class TaskRobot extends IterativeRobot {
    * This should never be called outside of the init satement.
    * @method robotPeridoic
    */
-  @Override
   public void robotPeriodic() {
     if (runner != null) {
       runner.run();
